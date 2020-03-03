@@ -14,12 +14,13 @@ export class ShoppingCartService {
     }
 
     addItem(item: MenuItem) {
-        let foundItem = this.items.find((mitem) => mitem.menuItem.id == item.id)
-
+        let foundItem = this.items.find((mitem) => mitem.menuItem.id === item.id)
+        console.log(foundItem)
         if(foundItem) {
             foundItem.quantity = foundItem.quantity + 1
         } else {
             this.items.push(new CartItem(item))
+            console.log(this.items)
         }
     }
 
