@@ -24,8 +24,21 @@ export class ShoppingCartService {
         }
     }
 
+    increaseQty(item: CartItem) {
+        item.quantity = item.quantity + 1
+    }
+
+    
+    decreaseQty(item: CartItem) {
+        item.quantity = item.quantity - 1
+        if(item.quantity === 0) {
+            this.removeItem(item)
+        }
+    }
+
+    //o remove ta dando pau, conserta ai
     removeItem(item: CartItem) {
-        this.items.slice(this.items.indexOf(item), 1)
+        this.items.splice(this.items.indexOf(item), 1)
     }
 
 }
